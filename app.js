@@ -4,10 +4,10 @@ const app = express();
 
 
 
-const router = express.Router();
+
 const publishToQueue = require('../rabbitmqm/services/MQService');
 
-router.post('/msg',async(req, res, next)=>{
+app.post('/msg',async(req, res, next)=>{
     let { queueName, payload } = req.body;
     await publishToQueue.publishToQueue(queueName, payload);
     res.statusCode = 200;
