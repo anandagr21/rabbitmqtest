@@ -6,7 +6,10 @@ const app = express();
 
 
 const publishToQueue = require('../rabbitmqm/services/MQService');
+app.get('/msg',(req,res)=>{
 
+res.json({"name":"anand"});
+})
 app.post('/msg',async(req, res, next)=>{
     let { queueName, payload } = req.body;
     await publishToQueue.publishToQueue(queueName, payload);
