@@ -3,10 +3,11 @@ const CONN_URL = 'amqp://rjstvmia:hViRMRt2RIu1IN1FtZBXvnIDamTo-zU5@rhino.rmq.clo
 
 let ch = null;
 amqp.connect(CONN_URL, function (err, conn) {
-    console.log(err);
-    console.log(conn);
+    //console.log(err);
+    //console.log(conn);
    conn.createChannel(function (err, channel) {
       ch = channel;
+       console.log(ch);
    });
 });
 
